@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: robot_walker
+    relative_path: urdf/robot_walker.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/six_legged_robot_walker.srdf
+  CONFIG:
+    author_name: Michael Law San
+    author_email: mlawsan@student.udm.ac.mu
+    generated_timestamp: 1601993425

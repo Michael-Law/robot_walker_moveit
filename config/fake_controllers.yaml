@@ -1,0 +1,80 @@
+controller_list:
+  - name: fake_primary_left_leg_controller
+    joints:
+      - pl_pectoral
+      - pl_humerus
+      - pl_radius
+  - name: fake_primary_left_foot_controller
+    joints:
+      - pl_carpal
+      - pl_foot
+  - name: fake_secondary_left_leg_controller
+    joints:
+      - pl_pectoral_secondary
+      - pl_humerus_secondary
+      - pl_radius_secondary
+  - name: fake_secondary_left_foot_controller
+    joints:
+      - pl_carpal_secondary
+      - pl_foot_secondary
+  - name: fake_tertiary_left_leg_controller
+    joints:
+      - pl_pectoral_Tertiary
+      - pl_humerus_Tertiary
+      - pl_radius_Tertiary
+  - name: fake_tertiary_left_foot_controller
+    joints:
+      - pl_carpal_Tertiary
+      - pl_foot_Tertiary
+  - name: fake_primary_right_leg_controller
+    joints:
+      - pl_pectoral_right
+      - pl_humerus_right
+      - pl_radius_right
+  - name: fake_primary_right_foot_controller
+    joints:
+      - pl_carpal_right
+      - pl_foot_right
+  - name: fake_secondary_right_leg_controller
+    joints:
+      - pl_pectoral_right_secondary
+      - pl_humerus_right_secondary
+      - pl_radius_right_secondary
+  - name: fake_secondary_right_foot_controller
+    joints:
+      - pl_carpal_right_secondary
+      - pl_foot_right_secondary
+  - name: fake_tertiary_right_leg_controller
+    joints:
+      - pl_pectoral_right_Tertiary
+      - pl_humerus_right_Tertiary
+      - pl_radius_right_Tertiary
+  - name: fake_tertiary_right_foot_controller
+    joints:
+      - pl_carpal_right_Tertiary
+      - pl_foot_right_Tertiary
+initial:  # Define initial robot poses.
+  - group: primary_left_leg
+    pose: primary_left_leg_pose
+  - group: primary_left_foot
+    pose: primary_left_foot_pose
+  - group: secondary_left_leg
+    pose: secondary_left_leg_pose
+  - group: secondary_left_foot
+    pose: secondary_left_foot_pose
+  - group: tertiary_left_leg
+    pose: tertiary_left_leg_pose
+  - group: tertiary_left_foot
+    pose: tertiary_left_foot_pose
+  - group: primary_right_leg
+    pose: primary_right_leg_pose
+  - group: primary_right_foot
+    pose: primary_right_foot_pose
+  - group: secondary_right_leg
+    pose: secondary_right_leg_pose
+  - group: secondary_right_foot
+    pose: secondary_right_foot_pose
+  - group: tertiary_right_leg
+    pose: tertiary_right_leg_pose
+  - group: tertiary_right_foot
+    pose: tertiary_right_foot_pose

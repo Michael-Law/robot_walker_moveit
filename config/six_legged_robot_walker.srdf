@@ -1,0 +1,511 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="six_legged_robot_walker">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="primary_left_leg">
+        <joint name="virtual_joint" />
+        <joint name="pl_pectoral" />
+        <joint name="pl_humerus" />
+        <joint name="pl_radius" />
+    </group>
+    <group name="primary_left_foot">
+        <joint name="pl_carpal" />
+        <joint name="pl_foot" />
+    </group>
+    <group name="secondary_left_leg">
+        <joint name="pl_pectoral_secondary" />
+        <joint name="pl_humerus_secondary" />
+        <joint name="pl_radius_secondary" />
+        <joint name="virtual_joint" />
+    </group>
+    <group name="secondary_left_foot">
+        <joint name="pl_carpal_secondary" />
+        <joint name="pl_foot_secondary" />
+    </group>
+    <group name="tertiary_left_leg">
+        <joint name="virtual_joint" />
+        <joint name="pl_pectoral_Tertiary" />
+        <joint name="pl_humerus_Tertiary" />
+        <joint name="pl_radius_Tertiary" />
+    </group>
+    <group name="tertiary_left_foot">
+        <joint name="pl_carpal_Tertiary" />
+        <joint name="pl_foot_Tertiary" />
+    </group>
+    <group name="primary_right_leg">
+        <joint name="virtual_joint" />
+        <joint name="pl_pectoral_right" />
+        <joint name="pl_humerus_right" />
+        <joint name="pl_radius_right" />
+    </group>
+    <group name="primary_right_foot">
+        <joint name="pl_carpal_right" />
+        <joint name="pl_foot_right" />
+    </group>
+    <group name="secondary_right_leg">
+        <joint name="virtual_joint" />
+        <joint name="pl_pectoral_right_secondary" />
+        <joint name="pl_humerus_right_secondary" />
+        <joint name="pl_radius_right_secondary" />
+    </group>
+    <group name="secondary_right_foot">
+        <joint name="pl_carpal_right_secondary" />
+        <joint name="pl_foot_right_secondary" />
+    </group>
+    <group name="tertiary_right_leg">
+        <joint name="virtual_joint" />
+        <joint name="pl_pectoral_right_Tertiary" />
+        <joint name="pl_humerus_right_Tertiary" />
+        <joint name="pl_radius_right_Tertiary" />
+    </group>
+    <group name="tertiary_right_foot">
+        <joint name="pl_carpal_right_Tertiary" />
+        <joint name="pl_foot_right_Tertiary" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="primary_left_leg_pose" group="primary_left_leg">
+        <joint name="pl_humerus" value="0" />
+        <joint name="pl_pectoral" value="0" />
+        <joint name="pl_radius" value="0" />
+    </group_state>
+    <group_state name="primary_left_foot_pose" group="primary_left_foot">
+        <joint name="pl_carpal" value="0" />
+        <joint name="pl_foot" value="0" />
+    </group_state>
+    <group_state name="secondary_left_leg_pose" group="secondary_left_leg">
+        <joint name="pl_humerus_secondary" value="0" />
+        <joint name="pl_pectoral_secondary" value="0" />
+        <joint name="pl_radius_secondary" value="0" />
+    </group_state>
+    <group_state name="secondary_left_foot_pose" group="secondary_left_foot">
+        <joint name="pl_carpal_secondary" value="0" />
+        <joint name="pl_foot_secondary" value="0" />
+    </group_state>
+    <group_state name="tertiary_left_leg_pose" group="tertiary_left_leg">
+        <joint name="pl_humerus_Tertiary" value="0" />
+        <joint name="pl_pectoral_Tertiary" value="0" />
+        <joint name="pl_radius_Tertiary" value="0" />
+    </group_state>
+    <group_state name="tertiary_left_foot_pose" group="tertiary_left_foot">
+        <joint name="pl_carpal_Tertiary" value="0" />
+        <joint name="pl_foot_Tertiary" value="0" />
+    </group_state>
+    <group_state name="primary_right_leg_pose" group="primary_right_leg">
+        <joint name="pl_humerus_right" value="0" />
+        <joint name="pl_pectoral_right" value="0" />
+        <joint name="pl_radius_right" value="0" />
+    </group_state>
+    <group_state name="primary_right_foot_pose" group="primary_right_foot">
+        <joint name="pl_carpal_right" value="0" />
+        <joint name="pl_foot_right" value="0" />
+    </group_state>
+    <group_state name="secondary_right_leg_pose" group="secondary_right_leg">
+        <joint name="pl_humerus_right_secondary" value="0" />
+        <joint name="pl_pectoral_right_secondary" value="0" />
+        <joint name="pl_radius_right_secondary" value="0" />
+    </group_state>
+    <group_state name="secondary_right_foot_pose" group="secondary_right_foot">
+        <joint name="pl_carpal_right_secondary" value="0" />
+        <joint name="pl_foot_right_secondary" value="0" />
+    </group_state>
+    <group_state name="tertiary_right_leg_pose" group="tertiary_right_leg">
+        <joint name="pl_humerus_right_Tertiary" value="0" />
+        <joint name="pl_pectoral_right_Tertiary" value="0" />
+        <joint name="pl_radius_right_Tertiary" value="0" />
+    </group_state>
+    <group_state name="tertiary_right_foot_pose" group="tertiary_right_foot">
+        <joint name="pl_carpal_right_Tertiary" value="0" />
+        <joint name="pl_foot_right_Tertiary" value="0" />
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="primary_left_end" parent_link="radius_left_primary" group="primary_left_foot" parent_group="primary_left_leg" />
+    <end_effector name="secondary_left_end" parent_link="radius_left_secondary" group="secondary_left_foot" parent_group="secondary_left_leg" />
+    <end_effector name="tertiary_left_leg" parent_link="radius_left_Tertiary" group="tertiary_left_foot" parent_group="tertiary_left_leg" />
+    <end_effector name="primary_right_end" parent_link="radius_right_primary" group="primary_right_foot" parent_group="primary_right_leg" />
+    <end_effector name="secondary_right_end" parent_link="radius_right_secondary" group="secondary_right_foot" parent_group="secondary_right_leg" />
+    <end_effector name="tertiary_end_end" parent_link="radius_right_Tertiary" group="tertiary_right_foot" parent_group="tertiary_right_leg" />
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="base_link" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="carpal_left_primary" reason="Never" />
+    <disable_collisions link1="base_link" link2="carpal_left_secondary" reason="Never" />
+    <disable_collisions link1="base_link" link2="carpal_right_primary" reason="Never" />
+    <disable_collisions link1="base_link" link2="carpal_right_secondary" reason="Never" />
+    <disable_collisions link1="base_link" link2="foot_left_primary" reason="Never" />
+    <disable_collisions link1="base_link" link2="foot_left_secondary" reason="Never" />
+    <disable_collisions link1="base_link" link2="foot_right_primary" reason="Never" />
+    <disable_collisions link1="base_link" link2="foot_right_secondary" reason="Never" />
+    <disable_collisions link1="base_link" link2="humerus_left_Tertiary" reason="Default" />
+    <disable_collisions link1="base_link" link2="humerus_left_primary" reason="Default" />
+    <disable_collisions link1="base_link" link2="humerus_left_secondary" reason="Default" />
+    <disable_collisions link1="base_link" link2="humerus_right_Tertiary" reason="Default" />
+    <disable_collisions link1="base_link" link2="humerus_right_primary" reason="Default" />
+    <disable_collisions link1="base_link" link2="humerus_right_secondary" reason="Default" />
+    <disable_collisions link1="base_link" link2="pectoral_left_Tertiary" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pectoral_left_primary" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pectoral_left_secondary" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pectoral_right_Tertiary" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pectoral_right_primary" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="pectoral_right_secondary" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="base_link" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="base_link" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="base_link" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="base_link" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="base_link" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="carpal_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="carpal_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="carpal_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="foot_left_Tertiary" reason="Adjacent" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="foot_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="foot_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="foot_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="radius_left_Tertiary" reason="Adjacent" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_Tertiary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="carpal_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="carpal_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="carpal_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="foot_left_primary" reason="Adjacent" />
+    <disable_collisions link1="carpal_left_primary" link2="foot_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="foot_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="foot_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="humerus_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="radius_left_primary" reason="Adjacent" />
+    <disable_collisions link1="carpal_left_primary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_primary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="carpal_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="carpal_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="carpal_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="foot_left_secondary" reason="Adjacent" />
+    <disable_collisions link1="carpal_left_secondary" link2="foot_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="foot_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="foot_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="humerus_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="radius_left_secondary" reason="Adjacent" />
+    <disable_collisions link1="carpal_left_secondary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_left_secondary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="foot_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="foot_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="foot_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="foot_right_Tertiary" reason="Adjacent" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="humerus_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="humerus_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_Tertiary" link2="radius_right_Tertiary" reason="Adjacent" />
+    <disable_collisions link1="carpal_right_primary" link2="foot_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="foot_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="foot_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="foot_right_primary" reason="Adjacent" />
+    <disable_collisions link1="carpal_right_primary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="humerus_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="humerus_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_primary" link2="radius_right_primary" reason="Adjacent" />
+    <disable_collisions link1="carpal_right_secondary" link2="foot_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="foot_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="foot_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="foot_right_secondary" reason="Adjacent" />
+    <disable_collisions link1="carpal_right_secondary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="humerus_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="humerus_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="carpal_right_secondary" link2="radius_right_secondary" reason="Adjacent" />
+    <disable_collisions link1="foot_left_Tertiary" link2="foot_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="foot_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="foot_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_Tertiary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="foot_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="foot_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="foot_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="humerus_left_primary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="humerus_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_primary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="foot_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="foot_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="foot_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="humerus_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="foot_left_secondary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="humerus_left_primary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="humerus_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_Tertiary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="humerus_left_primary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="humerus_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_primary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="humerus_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="humerus_left_primary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="humerus_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="foot_right_secondary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="humerus_left_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="pectoral_left_Tertiary" reason="Adjacent" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="radius_left_Tertiary" reason="Adjacent" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_Tertiary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="pectoral_left_primary" reason="Adjacent" />
+    <disable_collisions link1="humerus_left_primary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="radius_left_primary" reason="Adjacent" />
+    <disable_collisions link1="humerus_left_primary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_primary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="humerus_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="humerus_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="pectoral_left_secondary" reason="Adjacent" />
+    <disable_collisions link1="humerus_left_secondary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="radius_left_secondary" reason="Adjacent" />
+    <disable_collisions link1="humerus_left_secondary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_left_secondary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="humerus_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="pectoral_right_Tertiary" reason="Adjacent" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="radius_right_Tertiary" reason="Adjacent" />
+    <disable_collisions link1="humerus_right_Tertiary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_right_primary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_right_primary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="humerus_right_primary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="humerus_right_primary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_right_primary" link2="pectoral_right_primary" reason="Adjacent" />
+    <disable_collisions link1="humerus_right_primary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="humerus_right_primary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_right_primary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="humerus_right_primary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="humerus_right_primary" link2="radius_right_primary" reason="Adjacent" />
+    <disable_collisions link1="humerus_right_secondary" link2="pectoral_left_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_right_secondary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="humerus_right_secondary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="humerus_right_secondary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_right_secondary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="humerus_right_secondary" link2="pectoral_right_secondary" reason="Adjacent" />
+    <disable_collisions link1="humerus_right_secondary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="humerus_right_secondary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="humerus_right_secondary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="humerus_right_secondary" link2="radius_right_secondary" reason="Adjacent" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="pectoral_left_primary" reason="Never" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="pectoral_left_Tertiary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_left_primary" link2="pectoral_left_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_left_primary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_left_primary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="pectoral_left_primary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_left_primary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_left_primary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="pectoral_left_primary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_left_primary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_left_primary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="pectoral_left_primary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_left_secondary" link2="pectoral_right_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_left_secondary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="pectoral_left_secondary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_left_secondary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_left_secondary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="pectoral_left_secondary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_left_secondary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_left_secondary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="pectoral_left_secondary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_right_Tertiary" link2="pectoral_right_primary" reason="Never" />
+    <disable_collisions link1="pectoral_right_Tertiary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_right_Tertiary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_right_Tertiary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="pectoral_right_Tertiary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_right_Tertiary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_right_Tertiary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="pectoral_right_Tertiary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_right_primary" link2="pectoral_right_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_right_primary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_right_primary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="pectoral_right_primary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_right_primary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_right_primary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="pectoral_right_primary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_right_secondary" link2="radius_left_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_right_secondary" link2="radius_left_primary" reason="Never" />
+    <disable_collisions link1="pectoral_right_secondary" link2="radius_left_secondary" reason="Never" />
+    <disable_collisions link1="pectoral_right_secondary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="pectoral_right_secondary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="pectoral_right_secondary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="radius_left_Tertiary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="radius_left_Tertiary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="radius_left_Tertiary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="radius_left_primary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="radius_left_primary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="radius_left_primary" link2="radius_right_secondary" reason="Never" />
+    <disable_collisions link1="radius_left_secondary" link2="radius_right_Tertiary" reason="Never" />
+    <disable_collisions link1="radius_left_secondary" link2="radius_right_primary" reason="Never" />
+    <disable_collisions link1="radius_left_secondary" link2="radius_right_secondary" reason="Never" />
+</robot>
